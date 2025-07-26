@@ -43,12 +43,13 @@ class TextInputField extends StatelessWidget {
           enabledBorder: _buildNoBorder(),
           errorBorder: _buildErrorBorder(),
           focusedBorder: _buildFocusBorder(),
-          prefixIcon: icon != null
-              ? Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Icon(icon, size: 24),
-                )
-              : null,
+          prefixIcon:
+              icon != null
+                  ? Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Icon(icon, size: 24),
+                  )
+                  : null,
 
           contentPadding: const EdgeInsets.symmetric(
             vertical: 16,
@@ -93,12 +94,13 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
         validator: widget.validator,
         onChanged: widget.onChanged,
         decoration: InputDecoration(
+          filled: true,
           hintText: widget.hint,
           border: _buildNoBorder(),
           enabledBorder: _buildNoBorder(),
           errorBorder: _buildErrorBorder(),
           focusedBorder: _buildFocusBorder(),
-          prefixIcon: const Icon(Icons.lock_outline, size: 24),
+          prefixIcon: const Icon(Icons.lock, size: 24),
           suffixIcon: IconButton(
             onPressed: () => setState(() => obscureText = !obscureText),
             icon: Icon(
