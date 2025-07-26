@@ -10,6 +10,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yummify/core/firebase/firebase.dart' as firebase;
 import 'package:yummify/core/firebase/firebase_options.dart';
 import 'package:yummify/core/helper/shared_preference.dart';
+import 'package:yummify/features/auth/cubit/auth_cubit.dart';
+import 'package:yummify/features/auth/data/data_source/base_auth_data_source.dart';
+import 'package:yummify/features/auth/data/data_source/remote_auth_data_source.dart';
+import 'package:yummify/features/auth/data/repositories/auth_repository.dart';
 
 final sl = GetIt.instance;
 
@@ -17,6 +21,18 @@ Future<void> initAppModule() async {
   await _registerFirebase();
   await _registerSharedPref();
   await _registerHydratedStorage();
+
+  // ----------- Registering dependencies ----------
+  _registerAuthRepository();
+}
+
+void _registerAuthRepository() {
+  sl.registerLazySingleton<BaseAuthDataSource>(
+    () => RemoteAuthDataSource(sl()),
+  );
+  sl.registerLazySingleton<AuthRepository>(() => AuthRepository(sl()));
+
+  sl.registerLazySingleton<AuthCubit>(() => AuthCubit(sl<AuthRepository>()));
 }
 
 Future<void> _registerHydratedStorage() async {
@@ -34,7 +50,7 @@ Future<void> _registerSharedPref() async {
 }
 
 Future<void> _registerFirebase() async {
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   sl.registerLazySingleton<firebase.Firebase>(
     () => firebase.Firebase(
       auth: FirebaseAuth.instance,
