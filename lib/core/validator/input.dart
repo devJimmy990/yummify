@@ -12,7 +12,7 @@ class InputValidator {
   static String? validateName(String? value) {
     if (value == null || value.isEmpty) {
       return Localization.validatorEmpty;
-    } else if (!value.contains(" ")) {
+    } else if (value.length < 3) {
       return Localization.validatorShortName;
     } else if (value.length > 25) {
       return Localization.validatorLongName;

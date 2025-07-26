@@ -21,23 +21,23 @@ class Buttons {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
       ),
-      child: (isLoading ?? false)
-          ? const SizedBox(
-              width: 24,
-              height: 24,
-              child: CircularProgressIndicator(
-                color: Colors.white,
-                strokeWidth: 2,
+      child:
+          (isLoading ?? false)
+              ? const SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                  strokeWidth: 2,
+                ),
+              )
+              : Text(
+                label,
+                style: TextStyle(
+                  fontSize: fontSize ?? 20.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            )
-          : Text(
-              label,
-              style: TextStyle(
-                fontSize: fontSize ?? 20.sp,
-                fontWeight: FontWeight.w600,
-                color: textColor ?? Colors.white,
-              ),
-            ),
     ),
   );
 
@@ -60,22 +60,23 @@ class Buttons {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
       ),
-      child: (isLoading ?? false)
-          ? const SizedBox(
-              width: 24,
-              height: 24,
-              child: CircularProgressIndicator(
-                color: Colors.white,
-                strokeWidth: 2,
+      child:
+          (isLoading ?? false)
+              ? const SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                  strokeWidth: 2,
+                ),
+              )
+              : Text(
+                label,
+                style: TextStyle(
+                  fontSize: fontSize ?? 20.sp,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            )
-          : Text(
-              label,
-              style: TextStyle(
-                fontSize: fontSize ?? 20.sp,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
     ),
   );
 
