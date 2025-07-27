@@ -101,7 +101,6 @@ This project demonstrates modern mobile development practices with clean archite
     </tr>
   </table>
 </div> -->
-
 ---
 
 ## 🔧 Installation & Setup
