@@ -7,7 +7,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yummify/core/firebase/firebase.dart' as firebase;
 import 'package:yummify/core/firebase/firebase_options.dart';
-import 'package:yummify/core/helper/notification_services.dart';
 import 'package:yummify/core/helper/shared_preference.dart';
 import 'package:yummify/features/auth/cubit/auth_cubit.dart';
 import 'package:yummify/features/auth/data/data_source/base_auth_data_source.dart';
@@ -36,8 +35,6 @@ Future<void> initAppModule() async {
   await _registerSharedPref();
   await _registerHydratedStorage();
 
-  _registerNotificationService();
-
   // ----------- Registering dependencies ----------
   _registerCartCubit();
   _registerSettingsCubit();
@@ -46,10 +43,6 @@ Future<void> initAppModule() async {
   _registerOrderRepository();
   _registerConnectionCubit();
   _registerCategoryRepository();
-}
-
-Future<void> _registerNotificationService() async {
-  await LocalNotificationService.initialize();
 }
 
 void _registerConnectionCubit() {
