@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1083102641401",
+    "project_id": "yummify-27933",
+    "storage_bucket": "yummify-27933.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083102641401:android:f41c2f8fb06eed057fb628",
+        "android_client_info": {
+          "package_name": "com.dev_jimmy.yummify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH_rjmQmRIkKlHbDT6rTtbL0N9sjAOSM0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

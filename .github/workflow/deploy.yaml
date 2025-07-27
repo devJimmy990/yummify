@@ -1,0 +1,53 @@
+name: Deploy to Firebase App Distribution
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-android:
+    name: Bump Version, Build & Deploy Android
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global user.email "ci-bot@example.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Set up Flutter with FVM
+        uses: kuhnroyal/flutter-fvm-config-action@v2
+        with:
+          flutter-version-file: .fvm/fvm_config.json
+
+      - name: Install Flutter dependencies
+        run: flutter pub get
+
+      - name: Auto bump build number in pubspec.yaml
+        run: |
+          echo "🔢 Bumping build number..."
+          current_version=$(grep '^version:' pubspec.yaml | awk '{print $2}')
+          base_version=$(echo $current_version | cut -d+ -f1)
+          build_number=$(echo $current_version | cut -d+ -f2)
+          new_build_number=$((build_number + 1))
+          new_version="$base_version+$new_build_number"
+          echo "New version: $new_version"
+          sed -i "s/^version:.*/version: $new_version/" pubspec.yaml
+          git add pubspec.yaml
+          git commit -m "ci: bump build number to $new_build_number"
+          git push
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload to Firebase App Distribution
+        run: |
+          curl -sL https://firebase.tools | bash
+          firebase appdistribution:distribute build/app/outputs/flutter-apk/app-release.apk \
+            --app ${{ secrets.ANDROID_APP_ID }} \
+            --token ${{ secrets.FIREBASE_TOKEN }} \
+            --groups "testers"

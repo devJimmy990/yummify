@@ -1,0 +1,74 @@
+{
+    "@@locale": "ar",
+    "theme_dark": "داكن",
+    "theme_light": "فاتح",
+    "language_arabic": "العربية",
+    "language_english": "الإنجليزية",
+    "no_connection": "لا يوجد اتصال بالانترنت",
+    "validator_empty": "هذا الحقل مطلوب",
+    "validator_long_name": "الاسم طويل جدًا",
+    "validator_short_name": "الاسم قصير جدًا",
+    "validator_invalid_phone": "رقم الهاتف غير صحيح",
+    "validator_invalid_email": "البريد الإلكتروني غير صحيح",
+    "validator_short_message": "الرسالة قصيرة جدًا",
+    "validator_short_password": "كلمة المرور قصيرة جدًا",
+    "validator_password_not_match": "كلمات المرور غير متطابقة",
+    "auth_account_created_successfully": "تم إنشاء الحساب بنجاح",
+    "auth_already_have_an_account": "هل لديك حساب بالفعل؟",
+    "auth_authentication_required": "المصادقة مطلوبة",
+    "auth_confirm_password": "تأكيد كلمة المرور",
+    "auth_no_account": "ليس لديك حساب؟",
+    "auth_email": "البريد الإلكتروني",
+    "auth_enter_your_email": "أدخل بريدك الإلكتروني",
+    "auth_enter_your_full_name": "أدخل اسمك الكامل",
+    "auth_enter_your_password": "أدخل كلمة المرور",
+    "auth_enter_your_phone_number": "أدخل رقم هاتفك",
+    "auth_full_name": "الاسم الكامل",
+    "auth_invalid_email_or_password": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "auth_log_in": "تسجيل الدخول",
+    "auth_login": "تسجيل الدخول",
+    "auth_password": "كلمة المرور",
+    "auth_phone_number": "رقم الهاتف",
+    "auth_please_log_in_to_continue_with_checkout": "يرجى تسجيل الدخول للمتابعة إلى الدفع.",
+    "auth_sign_up": "إنشاء حساب",
+    "cart_my_cart": "سلتي",
+    "cart_order_created_successfully": "تم إنشاء الطلب بنجاح!",
+    "cart_proceed_to_checkout": "المتابعة إلى الدفع",
+    "cart_your_cart_is_empty": "سلتك فارغة.",
+    "general_cancel": "إلغاء",
+    "general_clear": "مسح",
+    "general_confirm": "تأكيد",
+    "general_error": "خطأ",
+    "general_ok": "موافق",
+    "general_total": "المجموع: ",
+    "main_cart": "السلة",
+    "main_home": "الرئيسية",
+    "main_profile": "الملف الشخصي",
+    "order_items": "عناصر •",
+    "order_mark_as_complete": "وضع علامة مكتمل",
+    "order_order": "الطلب رقم ",
+    "order_order_date": "تاريخ الطلب",
+    "order_order_items": "عناصر الطلب",
+    "order_status": "الحالة",
+    "order_total_items": "إجمالي العناصر",
+    "order_total_price": "السعر الإجمالي",
+    "profile_contact_us": "تواصل معنا",
+    "profile_continue_shopping": "متابعة التسوق",
+    "profile_edit_profile": "تعديل الملف الشخصي",
+    "profile_faq": "الأسئلة الشائعة",
+    "profile_log_in_to_view_your_profile_orders_and_cart": "سجل الدخول لعرض ملفك الشخصي والطلبات والسلة.",
+    "profile_log_out": "تسجيل الخروج",
+    "profile_my_orders": "طلباتي",
+    "profile_settings": "الإعدادات",
+    "profile_welcome_guest": "مرحباً بالضيف!",
+    "settings_language": "اللغة:",
+    "settings_settings": "الإعدادات",
+    "settings_switch": "تبديل",
+    "settings_theme": "المظهر: ",
+    "shopping_popular_meals": "🍽️ الوجبات الشائعة",
+    "shopping_add_to_cart": "إضافة إلى السلة",
+    "shopping_all_meals": "جميع الوجبات",
+    "shopping_failed_to_load_categories": "فشل في تحميل الفئات",
+    "shopping_item_added_to_cart": "تم إضافة العنصر إلى السلة",
+    "shopping_see_all": "عرض الكل"
+}
