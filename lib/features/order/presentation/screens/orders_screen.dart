@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/features/auth/cubit/auth_cubit.dart';
 import 'package:yummify/features/order/cubit/order_cubit.dart';
 import 'package:yummify/features/order/cubit/order_state.dart';
 import 'package:yummify/features/order/presentation/widgets/order_card.dart';
 import 'package:yummify/features/order/presentation/widgets/order_shimmer_card.dart';
 
-class OrderScreen extends StatelessWidget {
-  const OrderScreen({super.key});
+class OrdersScreen extends StatelessWidget {
+  const OrdersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class OrderScreen extends StatelessWidget {
       context.read<AuthCubit>().currentUser!.id,
     );
     return Scaffold(
-      appBar: AppBar(title: const Text('My Orders')),
+      appBar: AppBar(title: Text(Localization.profileMyOrders)),
       body: BlocBuilder<OrderCubit, OrderState>(
         builder: (context, state) {
           if (state is OrderLoading) {
@@ -32,7 +33,9 @@ class OrderScreen extends StatelessWidget {
             );
           }
 
-          return const Center(child: Text('Failed to load orders'));
+          return Center(
+            child: Text(Localization.shoppingFailedToLoadCategories),
+          );
         },
       ),
     );

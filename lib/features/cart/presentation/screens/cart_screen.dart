@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummify/core/extensions/navigator.dart';
+import 'package:yummify/core/helper/notification_services.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/core/routes/routes.dart';
+import 'package:yummify/core/ui/toast.dart';
 import 'package:yummify/features/auth/cubit/auth_cubit.dart';
 import 'package:yummify/features/cart/cubit/cart_cubit.dart';
 import 'package:yummify/features/cart/model/cart_item.dart';
@@ -18,10 +21,13 @@ class CartScreen extends StatelessWidget {
     final isUserAuthenticated = context.read<AuthCubit>().isAuthenticated;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Cart'),
+        title: Text(Localization.cartMyCart),
         actions: [
           TextButton(
-            child: const Text("clear", style: TextStyle(color: Colors.red)),
+            child: Text(
+              Localization.generalClear,
+              style: const TextStyle(color: Colors.red),
+            ),
 
             onPressed: () {
               context.read<CartCubit>().clearCart();
@@ -32,7 +38,7 @@ class CartScreen extends StatelessWidget {
       body: BlocBuilder<CartCubit, List<CartItem>>(
         builder: (context, cart) {
           if (cart.isEmpty) {
-            return const Center(child: Text('Your cart is empty.'));
+            return Center(child: Text(Localization.cartYourCartIsEmpty));
           }
 
           return Column(
@@ -65,7 +71,7 @@ class CartScreen extends StatelessWidget {
                     }
                   },
                   icon: const Icon(Icons.payment),
-                  label: const Text('Proceed to Checkout'),
+                  label: Text(Localization.cartProceedToCheckout),
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(double.infinity, 48.h),
                   ),
@@ -99,11 +105,11 @@ class _CheckoutBottomSheet extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(height: 12.h),
-          Text('Total: \$${total.toStringAsFixed(2)}'),
+          Text('${Localization.orderTotalPrice} \$${total.toStringAsFixed(2)}'),
           SizedBox(height: 20.h),
           ElevatedButton.icon(
             icon: const Icon(Icons.check_circle),
-            label: const Text('Confirm'),
+            label: Text(Localization.generalConfirm),
             onPressed: () {
               Navigator.pop(context);
               context.read<OrderCubit>().createOrder(
@@ -115,7 +121,13 @@ class _CheckoutBottomSheet extends StatelessWidget {
                   id: DateTime.now().millisecondsSinceEpoch.toString(),
                 ),
               );
-              // context.read<CartCubit>().clearCart();
+              context.read<CartCubit>().clearCart();
+              ToastHelper.success(Localization.cartOrderCreatedSuccessfully);
+              LocalNotificationService.show(
+                id: DateTime.now().millisecondsSinceEpoch,
+                title: "Yummify",
+                body: "Order created successfully",
+              );
               // ScaffoldMessenger.of(context).showSnackBar(
               //   const SnackBar(content: Text('Checkout complete!')),
               // );
@@ -135,33 +147,33 @@ class _AuthenticationDialog extends StatelessWidget {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
     titlePadding: const EdgeInsets.fromLTRB(24, 24, 24, 8),
     contentPadding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
-    title: const Column(
+    title: Column(
       children: [
-        Icon(Icons.lock_outline, size: 48, color: Colors.deepOrange),
-        SizedBox(height: 16),
+        const Icon(Icons.lock_outline, size: 48, color: Colors.deepOrange),
+        const SizedBox(height: 16),
         Text(
-          'Authentication Required',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          Localization.authAuthenticationRequired,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
         ),
       ],
     ),
-    content: const Text(
-      'Please log in to continue with checkout.',
+    content: Text(
+      Localization.authPleaseLogInToContinueWithCheckout,
       textAlign: TextAlign.center,
     ),
     actionsAlignment: MainAxisAlignment.spaceBetween,
     actions: [
       TextButton(
         onPressed: () => Navigator.pop(context),
-        child: const Text('Cancel'),
+        child: Text(Localization.generalCancel),
       ),
       ElevatedButton(
         onPressed: () {
           Navigator.pop(context);
           context.namedNavigator(Routes.login);
         },
-        child: const Text('Log In'),
+        child: Text(Localization.authLogIn),
       ),
     ],
   );

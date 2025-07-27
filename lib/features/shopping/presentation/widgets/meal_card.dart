@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:yummify/core/constants/colors_manager.dart';
 import 'package:yummify/core/extensions/navigator.dart';
-import 'package:yummify/core/theme/app_colors.dart';
 import 'package:yummify/features/shopping/data/model/meal.dart';
 import 'package:yummify/features/shopping/presentation/screens/meal_details_screen.dart';
 
@@ -19,7 +19,7 @@ class MealCard extends StatelessWidget {
       onTap: () => context.navigate(MealDetailsScreen(meal)),
       child: Container(
         decoration: BoxDecoration(
-          color: isDark ? AppColors.darkSurface : AppColors.surface,
+          color: isDark ? ColorManager.darkSurface : ColorManager.surface,
           borderRadius: BorderRadius.circular(16.r),
           boxShadow: [
             BoxShadow(
@@ -33,44 +33,29 @@ class MealCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Image section
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(16.r),
-                  ),
-                  child: Image.network(
-                    meal.img,
-                    height: 140.h,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Shimmer.fromColors(
-                        baseColor: Colors.grey[300]!,
-                        highlightColor: Colors.grey[100]!,
-                        child: Container(
-                          height: 140.h,
-                          width: double.infinity,
-                          color: Colors.white,
-                        ),
-                      );
-                    },
-                    errorBuilder:
-                        (context, error, stackTrace) =>
-                            const Icon(Icons.fastfood, size: 30),
-                  ),
-                ),
-                Positioned(
-                  top: 8.h,
-                  right: 8.w,
-                  child: Icon(
-                    Icons.favorite_border,
-                    size: 20.sp,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+            ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+              child: Image.network(
+                meal.img,
+                height: 140.h,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Shimmer.fromColors(
+                    baseColor: Colors.grey[300]!,
+                    highlightColor: Colors.grey[100]!,
+                    child: Container(
+                      height: 140.h,
+                      width: double.infinity,
+                      color: Colors.white,
+                    ),
+                  );
+                },
+                errorBuilder:
+                    (context, error, stackTrace) =>
+                        const Icon(Icons.fastfood, size: 30),
+              ),
             ),
 
             // Details
@@ -89,7 +74,7 @@ class MealCard extends StatelessWidget {
                   Text(
                     '\$${meal.price.toStringAsFixed(2)}',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppColors.primary,
+                      color: ColorManager.primary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
