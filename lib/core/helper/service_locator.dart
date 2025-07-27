@@ -14,6 +14,14 @@ import 'package:yummify/features/auth/cubit/auth_cubit.dart';
 import 'package:yummify/features/auth/data/data_source/base_auth_data_source.dart';
 import 'package:yummify/features/auth/data/data_source/remote_auth_data_source.dart';
 import 'package:yummify/features/auth/data/repositories/auth_repository.dart';
+import 'package:yummify/features/shopping/cubit/category/category_cubit.dart';
+import 'package:yummify/features/shopping/cubit/meal/meal_cubit.dart';
+import 'package:yummify/features/shopping/data/data_sources/category/base_category_data_source.dart';
+import 'package:yummify/features/shopping/data/data_sources/category/remote_category_data_source.dart';
+import 'package:yummify/features/shopping/data/data_sources/meal/base_meal_data_source.dart';
+import 'package:yummify/features/shopping/data/data_sources/meal/remote_meal_data_source.dart';
+import 'package:yummify/features/shopping/data/repositories/category_repository.dart';
+import 'package:yummify/features/shopping/data/repositories/meal_repository.dart';
 
 final sl = GetIt.instance;
 
@@ -24,6 +32,28 @@ Future<void> initAppModule() async {
 
   // ----------- Registering dependencies ----------
   _registerAuthRepository();
+  _registerMealRepository();
+  _registerCategoryRepository();
+}
+
+void _registerCategoryRepository() {
+  sl.registerLazySingleton<BaseCategoryDataSource>(
+    () => RemoteCategoryDataSource(sl()),
+  );
+  sl.registerLazySingleton<CategoryRepository>(() => CategoryRepository(sl()));
+
+  sl.registerLazySingleton<CategoryCubit>(
+    () => CategoryCubit(sl<CategoryRepository>()),
+  );
+}
+
+void _registerMealRepository() {
+  sl.registerLazySingleton<BaseMealDataSource>(
+    () => RemoteMealDataSource(sl()),
+  );
+  sl.registerLazySingleton<MealRepository>(() => MealRepository(sl()));
+
+  sl.registerLazySingleton<MealCubit>(() => MealCubit(sl<MealRepository>()));
 }
 
 void _registerAuthRepository() {

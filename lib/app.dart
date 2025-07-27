@@ -7,6 +7,8 @@ import 'package:yummify/core/localization/generated/l10n.dart';
 import 'package:yummify/core/routes/router.dart';
 import 'package:yummify/core/routes/routes.dart';
 import 'package:yummify/features/auth/cubit/auth_cubit.dart';
+import 'package:yummify/features/shopping/cubit/category/category_cubit.dart';
+import 'package:yummify/features/shopping/cubit/meal/meal_cubit.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,10 +20,14 @@ class MyApp extends StatelessWidget {
     splitScreenMode: true,
     builder:
         (context, child) => MultiBlocProvider(
-          providers: [BlocProvider(create: (_) => sl<AuthCubit>())],
+          providers: [
+            BlocProvider(create: (_) => sl<AuthCubit>()),
+            BlocProvider(create: (_) => sl<MealCubit>()),
+            BlocProvider(create: (_) => sl<CategoryCubit>()),
+          ],
           child: MaterialApp(
             routes: appRoutes,
-            initialRoute: Routes.login,
+            initialRoute: Routes.main,
             debugShowCheckedModeBanner: false,
             supportedLocales: S.delegate.supportedLocales,
             localizationsDelegates: const [
