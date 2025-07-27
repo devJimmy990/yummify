@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummify/core/extensions/navigator.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/core/routes/routes.dart';
 import 'package:yummify/features/shopping/cubit/meal/meal_cubit.dart';
 import 'package:yummify/features/shopping/cubit/meal/meal_state.dart';
@@ -93,12 +94,12 @@ class _MealHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          '🍽️ Popular Meals',
+          Localization.shoppingPopularMeals,
           style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
         ),
         TextButton(
           onPressed: () => context.namedNavigator(Routes.allMeals),
-          child: const Text('See All'),
+          child: Text(Localization.shoppingSeeAll),
         ),
       ],
     ),

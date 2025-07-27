@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/features/shopping/cubit/meal/meal_cubit.dart';
 import 'package:yummify/features/shopping/cubit/meal/meal_state.dart';
 import 'package:yummify/features/shopping/presentation/widgets/meal_card.dart';
@@ -11,7 +12,7 @@ class AllMealsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('All Meals')),
+    appBar: AppBar(title: Text(Localization.shoppingAllMeals)),
     body: Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       child: BlocBuilder<MealCubit, MealState>(

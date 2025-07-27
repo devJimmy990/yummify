@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummify/core/extensions/navigator.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/core/routes/routes.dart';
 import 'package:yummify/core/ui/buttons.dart';
 import 'package:yummify/core/ui/inputs.dart';
@@ -54,7 +55,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           if (state is AuthError) {
             ToastHelper.error(state.error);
           } else if (state is AccountCreated) {
-            ToastHelper.success("Account created successfully");
+            ToastHelper.success(Localization.authAccountCreatedSuccessfully);
             context.namedNavigatorWithReplacement(Routes.login);
           }
         },
@@ -75,37 +76,37 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             children: [
                               TextInputField(
                                 controller: _name,
-                                label: "Full Name",
                                 icon: Icons.person_outlined,
-                                hint: "Enter your full name",
+                                label: Localization.authFullName,
                                 validator: InputValidator.validateName,
+                                hint: Localization.authEnterYourFullName,
                               ),
                               TextInputField(
                                 controller: _phone,
-                                label: "Phone Number",
                                 icon: Icons.phone_android,
-                                hint: "Enter your phone number",
                                 keyboardType: TextInputType.phone,
+                                label: Localization.authPhoneNumber,
                                 validator: InputValidator.validatePhone,
+                                hint: Localization.authEnterYourPhoneNumber,
                               ),
                               TextInputField(
-                                label: "Email",
                                 controller: _email,
-                                hint: "Enter your email",
                                 icon: Icons.email_outlined,
+                                label: Localization.authEmail,
+                                hint: Localization.authEnterYourEmail,
                                 validator: InputValidator.validateEmail,
                                 keyboardType: TextInputType.emailAddress,
                               ),
                               PasswordInputField(
-                                label: "Password",
                                 controller: _password,
-                                hint: "Enter your password",
+                                label: Localization.authPassword,
+                                hint: Localization.authEnterYourPassword,
                                 validator: InputValidator.validatePassword,
                               ),
                               PasswordInputField(
-                                hint: "Confirm password",
-                                label: "Confirm Password",
                                 controller: _confirmPassword,
+                                hint: Localization.authConfirmPassword,
+                                label: Localization.authConfirmPassword,
                                 validator:
                                     (value) =>
                                         InputValidator.validateConfirmPassword(
@@ -147,7 +148,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                                   });
                                             }
                                           },
-                                          label: "Sign Up",
+                                          label: Localization.authSignUp,
                                         ),
                                       ),
                                       Expanded(
@@ -170,8 +171,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                         () => context.namedNavigator(
                                           Routes.login,
                                         ),
-                                    textButtonText: "Log In",
-                                    text: "Already have an account?",
+                                    textButtonText: Localization.authLogIn,
+                                    text: Localization.authAlreadyHaveAnAccount,
                                   ),
                                 ],
                               ),

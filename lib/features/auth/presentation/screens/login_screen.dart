@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummify/core/extensions/navigator.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/core/routes/routes.dart';
 import 'package:yummify/core/ui/buttons.dart';
 import 'package:yummify/core/ui/inputs.dart';
@@ -69,15 +70,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           spacing: 10.h,
                           children: [
                             TextInputField(
-                              label: "Email",
-                              icon: Icons.person,
-                              hint: "Enter your email",
                               controller: _email,
+                              icon: Icons.person,
+                              label: Localization.authEmail,
+                              hint: Localization.authEnterYourEmail,
                               keyboardType: TextInputType.emailAddress,
                             ),
                             PasswordInputField(
-                              label: "Password",
-                              hint: "Enter your password",
+                              label: Localization.authPassword,
+                              hint: Localization.authEnterYourPassword,
                               controller: _password,
                             ),
                           ],
@@ -101,13 +102,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                             );
                                           }
                                         },
-                                        label: "Login",
+                                        label: Localization.authLogIn,
                                       ),
                                     ),
                                     Expanded(
                                       child: Buttons.fill(
                                         onPressed: () {
-                                          _email.text = "test@gmail.com";
+                                          _email.text = "jimmy@gmail.com";
                                           _password.text = "12345678";
                                         },
                                         label: "Fill Form",
@@ -116,12 +117,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ],
                                 ),
                                 AuthAccountSwitcher(
+                                  text: Localization.authNoAccount,
+                                  textButtonText: Localization.authSignUp,
                                   onPressed:
                                       () => context.namedNavigator(
                                         Routes.register,
                                       ),
-                                  textButtonText: "Sign Up",
-                                  text: "Don't have an account?",
                                 ),
                               ],
                             ),

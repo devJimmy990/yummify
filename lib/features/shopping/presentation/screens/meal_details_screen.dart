@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/core/ui/toast.dart';
 import 'package:yummify/features/cart/cubit/cart_cubit.dart';
 import 'package:yummify/features/cart/model/cart_item.dart';
@@ -99,10 +100,12 @@ class MealDetailsScreen extends StatelessWidget {
                         context.read<CartCubit>().addItem(
                           CartItem.fromMeal(meal, quantity: quantity),
                         );
-                        ToastHelper.success('Item added to cart');
+                        ToastHelper.success(
+                          Localization.shoppingItemAddedToCart,
+                        );
                       },
                       icon: const Icon(Icons.shopping_cart_checkout),
-                      label: const Text('Add to Cart'),
+                      label: Text(Localization.shoppingAddToCart),
                     ),
                   ),
                 ],

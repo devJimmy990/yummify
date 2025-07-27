@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:yummify/core/theme/app_colors.dart';
+import 'package:yummify/core/constants/colors_manager.dart';
 
 class MealShimmerCard extends StatelessWidget {
   const MealShimmerCard({super.key});
@@ -15,7 +15,7 @@ class MealShimmerCard extends StatelessWidget {
       highlightColor: Colors.grey[100]!,
       child: Container(
         decoration: BoxDecoration(
-          color: isDark ? AppColors.darkSurface : AppColors.surface,
+          color: isDark ? ColorManager.darkSurface : ColorManager.surface,
           borderRadius: BorderRadius.circular(16.r),
         ),
         child: Column(

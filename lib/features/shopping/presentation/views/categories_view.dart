@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/features/shopping/cubit/category/category_cubit.dart';
 import 'package:yummify/features/shopping/cubit/category/category_state.dart';
 import 'package:yummify/features/shopping/presentation/widgets/category_card.dart';
@@ -36,7 +37,9 @@ class CategoriesView extends StatelessWidget {
             ),
           );
         } else {
-          return const Center(child: Text('Failed to load categories'));
+          return Center(
+            child: Text(Localization.shoppingFailedToLoadCategories),
+          );
         }
       },
     );
