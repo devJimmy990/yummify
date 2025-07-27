@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yummify/core/ui/toast.dart';
+import 'package:yummify/features/cart/cubit/cart_cubit.dart';
+import 'package:yummify/features/cart/model/cart_item.dart';
 import 'package:yummify/features/shopping/data/model/meal.dart';
 
 class MealDetailsScreen extends StatelessWidget {
@@ -92,7 +96,10 @@ class MealDetailsScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton.icon(
                       onPressed: () {
-                        // context.read<CartCubit>().addToCart(meal, quantity);
+                        context.read<CartCubit>().addItem(
+                          CartItem.fromMeal(meal, quantity: quantity),
+                        );
+                        ToastHelper.success('Item added to cart');
                       },
                       icon: const Icon(Icons.shopping_cart_checkout),
                       label: const Text('Add to Cart'),

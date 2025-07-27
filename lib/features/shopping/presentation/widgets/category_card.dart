@@ -40,7 +40,7 @@ class CategoryCard extends StatelessWidget {
               },
               errorBuilder:
                   (context, error, stackTrace) =>
-                      Icon(Icons.broken_image, size: 40.r, color: Colors.grey),
+                      const Icon(Icons.fastfood, size: 30),
             ),
           ),
         ),
