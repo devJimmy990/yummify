@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:yummify/core/extensions/navigator.dart';
 import 'package:yummify/core/theme/app_colors.dart';
 import 'package:yummify/features/shopping/data/model/meal.dart';
@@ -43,6 +44,21 @@ class MealCard extends StatelessWidget {
                     height: 140.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Shimmer.fromColors(
+                        baseColor: Colors.grey[300]!,
+                        highlightColor: Colors.grey[100]!,
+                        child: Container(
+                          height: 140.h,
+                          width: double.infinity,
+                          color: Colors.white,
+                        ),
+                      );
+                    },
+                    errorBuilder:
+                        (context, error, stackTrace) =>
+                            const Icon(Icons.fastfood, size: 30),
                   ),
                 ),
                 Positioned(

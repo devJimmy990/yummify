@@ -14,6 +14,11 @@ import 'package:yummify/features/auth/cubit/auth_cubit.dart';
 import 'package:yummify/features/auth/data/data_source/base_auth_data_source.dart';
 import 'package:yummify/features/auth/data/data_source/remote_auth_data_source.dart';
 import 'package:yummify/features/auth/data/repositories/auth_repository.dart';
+import 'package:yummify/features/cart/cubit/cart_cubit.dart';
+import 'package:yummify/features/order/cubit/order_cubit.dart';
+import 'package:yummify/features/order/data/data_sources/base_order_data_source.dart';
+import 'package:yummify/features/order/data/data_sources/remote_order_data_source.dart';
+import 'package:yummify/features/order/data/repositories/order_repository.dart';
 import 'package:yummify/features/shopping/cubit/category/category_cubit.dart';
 import 'package:yummify/features/shopping/cubit/meal/meal_cubit.dart';
 import 'package:yummify/features/shopping/data/data_sources/category/base_category_data_source.dart';
@@ -31,9 +36,24 @@ Future<void> initAppModule() async {
   await _registerHydratedStorage();
 
   // ----------- Registering dependencies ----------
+  _registerCartCubit();
   _registerAuthRepository();
   _registerMealRepository();
+  _registerOrderRepository();
   _registerCategoryRepository();
+}
+
+void _registerOrderRepository() {
+  sl.registerLazySingleton<BaseOrderDataSource>(
+    () => RemoteOrderDataSource(sl()),
+  );
+  sl.registerLazySingleton<OrderRepository>(() => OrderRepository(sl()));
+
+  sl.registerLazySingleton<OrderCubit>(() => OrderCubit(sl<OrderRepository>()));
+}
+
+void _registerCartCubit() {
+  sl.registerLazySingleton<CartCubit>(() => CartCubit());
 }
 
 void _registerCategoryRepository() {
