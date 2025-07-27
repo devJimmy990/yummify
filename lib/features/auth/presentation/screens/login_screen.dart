@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
           if (state is AuthError) {
             ToastHelper.error(state.error);
           } else if (state is Authenticated) {
-            context.namedNavigatorWithReplacement(Routes.home);
+            context.namedNavigatorWithReplacement(Routes.main);
           } else if (state is AccountCreated) {
             _email.text = state.email;
             _password.text = state.password;
