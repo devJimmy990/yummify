@@ -1,24 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yummify/core/firebase/firebase.dart' as firebase;
 import 'package:yummify/core/firebase/firebase_options.dart';
+import 'package:yummify/core/helper/notification_services.dart';
 import 'package:yummify/core/helper/shared_preference.dart';
 import 'package:yummify/features/auth/cubit/auth_cubit.dart';
 import 'package:yummify/features/auth/data/data_source/base_auth_data_source.dart';
 import 'package:yummify/features/auth/data/data_source/remote_auth_data_source.dart';
 import 'package:yummify/features/auth/data/repositories/auth_repository.dart';
 import 'package:yummify/features/cart/cubit/cart_cubit.dart';
+import 'package:yummify/features/connection/model/connection.dart';
 import 'package:yummify/features/order/cubit/order_cubit.dart';
 import 'package:yummify/features/order/data/data_sources/base_order_data_source.dart';
 import 'package:yummify/features/order/data/data_sources/remote_order_data_source.dart';
 import 'package:yummify/features/order/data/repositories/order_repository.dart';
+import 'package:yummify/features/settings/cubit/settings_cubit.dart';
 import 'package:yummify/features/shopping/cubit/category/category_cubit.dart';
 import 'package:yummify/features/shopping/cubit/meal/meal_cubit.dart';
 import 'package:yummify/features/shopping/data/data_sources/category/base_category_data_source.dart';
@@ -35,12 +36,28 @@ Future<void> initAppModule() async {
   await _registerSharedPref();
   await _registerHydratedStorage();
 
+  _registerNotificationService();
+
   // ----------- Registering dependencies ----------
   _registerCartCubit();
+  _registerSettingsCubit();
   _registerAuthRepository();
   _registerMealRepository();
   _registerOrderRepository();
+  _registerConnectionCubit();
   _registerCategoryRepository();
+}
+
+Future<void> _registerNotificationService() async {
+  await LocalNotificationService.initialize();
+}
+
+void _registerConnectionCubit() {
+  sl.registerLazySingleton<ConnectionService>(() => ConnectionService.instance);
+}
+
+void _registerSettingsCubit() {
+  sl.registerLazySingleton<SettingsCubit>(() => SettingsCubit());
 }
 
 void _registerOrderRepository() {
@@ -105,8 +122,6 @@ Future<void> _registerFirebase() async {
     () => firebase.Firebase(
       auth: FirebaseAuth.instance,
       store: FirebaseFirestore.instance,
-      storage: FirebaseStorage.instance,
-      messaging: FirebaseMessaging.instance,
     ),
   );
 }

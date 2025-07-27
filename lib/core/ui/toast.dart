@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:yummify/core/theme/app_colors.dart';
+import 'package:yummify/core/constants/colors_manager.dart';
 
 class ToastHelper {
   static void success(String message) {
@@ -8,7 +8,7 @@ class ToastHelper {
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
-      backgroundColor: AppColors.success,
+      backgroundColor: ColorManager.success,
       textColor: Colors.white,
       fontSize: 16.0,
     );
@@ -19,7 +19,7 @@ class ToastHelper {
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
-      backgroundColor: AppColors.error,
+      backgroundColor: ColorManager.error,
       textColor: Colors.white,
       fontSize: 16.0,
     );
@@ -30,7 +30,7 @@ class ToastHelper {
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
-      backgroundColor: AppColors.info,
+      backgroundColor: ColorManager.info,
       textColor: Colors.white,
       fontSize: 16.0,
     );
@@ -41,7 +41,7 @@ class ToastHelper {
       msg: message,
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
-      backgroundColor: AppColors.warning,
+      backgroundColor: ColorManager.warning,
       textColor: Colors.white,
       fontSize: 16.0,
     );
