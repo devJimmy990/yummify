@@ -22,67 +22,140 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "auth_btn_forget_password": MessageLookupByLibrary.simpleMessage(
-      "Forget Password?",
+    "auth_account_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "Account created successfully",
     ),
-    "auth_btn_logout": MessageLookupByLibrary.simpleMessage("Logout"),
-    "auth_btn_sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
-    "auth_btn_sign_in_google": MessageLookupByLibrary.simpleMessage(
-      "Sign in With Google",
+    "auth_already_have_an_account": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
     ),
-    "auth_btn_sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
-    "auth_input_confirm_password": MessageLookupByLibrary.simpleMessage(
-      "Confirm Password",
+    "auth_authentication_required": MessageLookupByLibrary.simpleMessage(
+      "Authentication Required",
     ),
-    "auth_input_email": MessageLookupByLibrary.simpleMessage("E-Mail"),
-    "auth_input_full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
-    "auth_input_password": MessageLookupByLibrary.simpleMessage("Password"),
-    "auth_input_phone": MessageLookupByLibrary.simpleMessage("Phone Number"),
-    "auth_remember_msg": MessageLookupByLibrary.simpleMessage(
-      "need to login every time open the app",
+    "auth_confirm_password": MessageLookupByLibrary.simpleMessage(
+      "Confirm password",
     ),
-    "auth_tab_sign_in": MessageLookupByLibrary.simpleMessage("Sign in"),
-    "auth_tab_sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
-    "auth_toggle_remember_me": MessageLookupByLibrary.simpleMessage(
-      "Remember Me",
+    "auth_email": MessageLookupByLibrary.simpleMessage("Email"),
+    "auth_enter_your_email": MessageLookupByLibrary.simpleMessage(
+      "Enter your email",
     ),
+    "auth_enter_your_full_name": MessageLookupByLibrary.simpleMessage(
+      "Enter your full name",
+    ),
+    "auth_enter_your_password": MessageLookupByLibrary.simpleMessage(
+      "Enter your password",
+    ),
+    "auth_enter_your_phone_number": MessageLookupByLibrary.simpleMessage(
+      "Enter your phone number",
+    ),
+    "auth_full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "auth_invalid_email_or_password": MessageLookupByLibrary.simpleMessage(
+      "invalid email or password",
+    ),
+    "auth_log_in": MessageLookupByLibrary.simpleMessage("Log In"),
+    "auth_login": MessageLookupByLibrary.simpleMessage("Login"),
+    "auth_no_account": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
+    "auth_password": MessageLookupByLibrary.simpleMessage("Password"),
+    "auth_phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
+    "auth_please_log_in_to_continue_with_checkout":
+        MessageLookupByLibrary.simpleMessage(
+          "Please log in to continue with checkout.",
+        ),
+    "auth_sign_up": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "cart_my_cart": MessageLookupByLibrary.simpleMessage("My Cart"),
+    "cart_order_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "Order created successfully!",
+    ),
+    "cart_proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
+      "Proceed to Checkout",
+    ),
+    "cart_your_cart_is_empty": MessageLookupByLibrary.simpleMessage(
+      "Your cart is empty.",
+    ),
+    "general_cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "general_clear": MessageLookupByLibrary.simpleMessage("clear"),
+    "general_confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "general_error": MessageLookupByLibrary.simpleMessage("Error"),
+    "general_ok": MessageLookupByLibrary.simpleMessage("Ok"),
+    "general_total_": MessageLookupByLibrary.simpleMessage("Total: "),
     "language_arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "language_english": MessageLookupByLibrary.simpleMessage("English"),
-    "language_switch": MessageLookupByLibrary.simpleMessage(
-      "تغيير للغة العربية",
+    "main_cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "main_home": MessageLookupByLibrary.simpleMessage("Home"),
+    "main_profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "no_connection": MessageLookupByLibrary.simpleMessage(
+      "No Internet Connection",
     ),
+    "order_items_": MessageLookupByLibrary.simpleMessage("items •"),
+    "order_mark_as_complete": MessageLookupByLibrary.simpleMessage(
+      "Mark as Complete",
+    ),
+    "order_order": MessageLookupByLibrary.simpleMessage("Order # "),
+    "order_order_date": MessageLookupByLibrary.simpleMessage("Order Date"),
+    "order_order_items": MessageLookupByLibrary.simpleMessage("Order Items"),
+    "order_status": MessageLookupByLibrary.simpleMessage("Status"),
+    "order_total_items": MessageLookupByLibrary.simpleMessage("Total Items"),
+    "order_total_price": MessageLookupByLibrary.simpleMessage("Total Price"),
+    "profile_contact_us": MessageLookupByLibrary.simpleMessage("Contact Us"),
+    "profile_continue_shopping": MessageLookupByLibrary.simpleMessage(
+      "Continue Shopping",
+    ),
+    "profile_edit_profile": MessageLookupByLibrary.simpleMessage(
+      "Edit Profile",
+    ),
+    "profile_faq": MessageLookupByLibrary.simpleMessage("FAQ"),
+    "profile_log_in_to_view_your_profile_orders_and_cart":
+        MessageLookupByLibrary.simpleMessage(
+          "Log in to view your profile, orders, and cart.",
+        ),
+    "profile_log_out": MessageLookupByLibrary.simpleMessage("Log Out"),
+    "profile_my_orders": MessageLookupByLibrary.simpleMessage("My Orders"),
+    "profile_settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "profile_welcome_guest": MessageLookupByLibrary.simpleMessage(
+      "Welcome Guest!",
+    ),
+    "settings_language": MessageLookupByLibrary.simpleMessage("Language:"),
+    "settings_settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "settings_switch": MessageLookupByLibrary.simpleMessage("Switch"),
+    "settings_theme_": MessageLookupByLibrary.simpleMessage("Theme: "),
+    "shopping_add_to_cart": MessageLookupByLibrary.simpleMessage("Add to Cart"),
+    "shopping_all_meals": MessageLookupByLibrary.simpleMessage("All Meals"),
+    "shopping_failed_to_load_categories": MessageLookupByLibrary.simpleMessage(
+      "Failed to load categories",
+    ),
+    "shopping_item_added_to_cart": MessageLookupByLibrary.simpleMessage(
+      "Item added to cart",
+    ),
+    "shopping_popular_meals": MessageLookupByLibrary.simpleMessage(
+      "🍽️ Popular Meals",
+    ),
+    "shopping_see_all": MessageLookupByLibrary.simpleMessage("See All"),
     "theme_dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "theme_light": MessageLookupByLibrary.simpleMessage("Light"),
-    "theme_switch": MessageLookupByLibrary.simpleMessage("Switch"),
-    "validator_empty": MessageLookupByLibrary.simpleMessage("required"),
-    "validator_firebase_invalid_credentials":
-        MessageLookupByLibrary.simpleMessage("invalid email or password"),
-    "validator_firebase_used_email": MessageLookupByLibrary.simpleMessage(
-      "The account already exists for that email",
-    ),
-    "validator_firebase_weak_password": MessageLookupByLibrary.simpleMessage(
-      "password is too weak",
+    "validator_empty": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
     ),
     "validator_invalid_email": MessageLookupByLibrary.simpleMessage(
-      "invalid email format e.g. abc@email.com",
+      "Invalid email address",
     ),
     "validator_invalid_phone": MessageLookupByLibrary.simpleMessage(
-      "invalid phone number format e.g. 0128223643",
+      "Invalid phone number",
     ),
     "validator_long_name": MessageLookupByLibrary.simpleMessage(
-      "Name must be less than 25 characters",
+      "Name is too long",
     ),
     "validator_password_not_match": MessageLookupByLibrary.simpleMessage(
       "Passwords do not match",
     ),
     "validator_short_message": MessageLookupByLibrary.simpleMessage(
-      "Name is too short",
+      "Message is too short",
     ),
     "validator_short_name": MessageLookupByLibrary.simpleMessage(
       "Name is too short",
     ),
     "validator_short_password": MessageLookupByLibrary.simpleMessage(
-      "Password must be more than 6 characters",
+      "Password is too short",
     ),
   };
 }

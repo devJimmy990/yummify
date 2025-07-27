@@ -22,71 +22,135 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "auth_btn_forget_password": MessageLookupByLibrary.simpleMessage(
-      "نسيت كلمة المرور؟",
+    "auth_account_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء الحساب بنجاح",
     ),
-    "auth_btn_logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
-    "auth_btn_sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-    "auth_btn_sign_in_google": MessageLookupByLibrary.simpleMessage(
-      "تسجيل الدخول باستخدام جوجل",
+    "auth_already_have_an_account": MessageLookupByLibrary.simpleMessage(
+      "هل لديك حساب بالفعل؟",
     ),
-    "auth_btn_sign_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
-    "auth_input_confirm_password": MessageLookupByLibrary.simpleMessage(
+    "auth_authentication_required": MessageLookupByLibrary.simpleMessage(
+      "المصادقة مطلوبة",
+    ),
+    "auth_confirm_password": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
     ),
-    "auth_input_email": MessageLookupByLibrary.simpleMessage(
-      "البريد الإلكتروني",
+    "auth_email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "auth_enter_your_email": MessageLookupByLibrary.simpleMessage(
+      "أدخل بريدك الإلكتروني",
     ),
-    "auth_input_full_name": MessageLookupByLibrary.simpleMessage(
-      "الاسم الكامل",
+    "auth_enter_your_full_name": MessageLookupByLibrary.simpleMessage(
+      "أدخل اسمك الكامل",
     ),
-    "auth_input_password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
-    "auth_input_phone": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
-    "auth_remember_msg": MessageLookupByLibrary.simpleMessage(
-      "يجب تسجيل الدخول في كل مرة يتم فتح التطبيق",
+    "auth_enter_your_password": MessageLookupByLibrary.simpleMessage(
+      "أدخل كلمة المرور",
     ),
-    "auth_tab_sign_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-    "auth_tab_sign_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
-    "auth_toggle_remember_me": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "auth_enter_your_phone_number": MessageLookupByLibrary.simpleMessage(
+      "أدخل رقم هاتفك",
+    ),
+    "auth_full_name": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
+    "auth_invalid_email_or_password": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    ),
+    "auth_log_in": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "auth_login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "auth_no_account": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "auth_password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "auth_phone_number": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
+    "auth_please_log_in_to_continue_with_checkout":
+        MessageLookupByLibrary.simpleMessage(
+          "يرجى تسجيل الدخول للمتابعة إلى الدفع.",
+        ),
+    "auth_sign_up": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "cart_my_cart": MessageLookupByLibrary.simpleMessage("سلتي"),
+    "cart_order_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء الطلب بنجاح!",
+    ),
+    "cart_proceed_to_checkout": MessageLookupByLibrary.simpleMessage(
+      "المتابعة إلى الدفع",
+    ),
+    "cart_your_cart_is_empty": MessageLookupByLibrary.simpleMessage(
+      "سلتك فارغة.",
+    ),
+    "general_cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "general_clear": MessageLookupByLibrary.simpleMessage("مسح"),
+    "general_confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+    "general_error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "general_ok": MessageLookupByLibrary.simpleMessage("موافق"),
     "language_arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "language_english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
-    "language_switch": MessageLookupByLibrary.simpleMessage(
-      "Switch to English",
+    "main_cart": MessageLookupByLibrary.simpleMessage("السلة"),
+    "main_home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+    "main_profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "no_connection": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد اتصال بالانترنت",
     ),
+    "order_mark_as_complete": MessageLookupByLibrary.simpleMessage(
+      "وضع علامة مكتمل",
+    ),
+    "order_order": MessageLookupByLibrary.simpleMessage("الطلب رقم "),
+    "order_order_date": MessageLookupByLibrary.simpleMessage("تاريخ الطلب"),
+    "order_order_items": MessageLookupByLibrary.simpleMessage("عناصر الطلب"),
+    "order_status": MessageLookupByLibrary.simpleMessage("الحالة"),
+    "order_total_items": MessageLookupByLibrary.simpleMessage("إجمالي العناصر"),
+    "order_total_price": MessageLookupByLibrary.simpleMessage("السعر الإجمالي"),
+    "profile_contact_us": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+    "profile_continue_shopping": MessageLookupByLibrary.simpleMessage(
+      "متابعة التسوق",
+    ),
+    "profile_edit_profile": MessageLookupByLibrary.simpleMessage(
+      "تعديل الملف الشخصي",
+    ),
+    "profile_faq": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
+    "profile_log_in_to_view_your_profile_orders_and_cart":
+        MessageLookupByLibrary.simpleMessage(
+          "سجل الدخول لعرض ملفك الشخصي والطلبات والسلة.",
+        ),
+    "profile_log_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "profile_my_orders": MessageLookupByLibrary.simpleMessage("طلباتي"),
+    "profile_settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "profile_welcome_guest": MessageLookupByLibrary.simpleMessage(
+      "مرحباً بالضيف!",
+    ),
+    "settings_language": MessageLookupByLibrary.simpleMessage("اللغة:"),
+    "settings_settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+    "settings_switch": MessageLookupByLibrary.simpleMessage("تبديل"),
+    "shopping_add_to_cart": MessageLookupByLibrary.simpleMessage(
+      "إضافة إلى السلة",
+    ),
+    "shopping_all_meals": MessageLookupByLibrary.simpleMessage("جميع الوجبات"),
+    "shopping_failed_to_load_categories": MessageLookupByLibrary.simpleMessage(
+      "فشل في تحميل الفئات",
+    ),
+    "shopping_item_added_to_cart": MessageLookupByLibrary.simpleMessage(
+      "تم إضافة العنصر إلى السلة",
+    ),
+    "shopping_popular_meals": MessageLookupByLibrary.simpleMessage(
+      "🍽️ الوجبات الشائعة",
+    ),
+    "shopping_see_all": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "theme_dark": MessageLookupByLibrary.simpleMessage("داكن"),
     "theme_light": MessageLookupByLibrary.simpleMessage("فاتح"),
-    "theme_switch": MessageLookupByLibrary.simpleMessage("تبديل"),
-    "validator_empty": MessageLookupByLibrary.simpleMessage("مطلوب"),
-    "validator_firebase_invalid_credentials":
-        MessageLookupByLibrary.simpleMessage(
-          "البريد الإلكتروني أو كلمة المرور غير صحيحة",
-        ),
-    "validator_firebase_used_email": MessageLookupByLibrary.simpleMessage(
-      "الحساب موجود بالفعل لهذا البريد الإلكتروني",
-    ),
-    "validator_firebase_weak_password": MessageLookupByLibrary.simpleMessage(
-      "كلمة المرور ضعيفة جدًا",
-    ),
+    "validator_empty": MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
     "validator_invalid_email": MessageLookupByLibrary.simpleMessage(
-      "تنسيق البريد الإلكتروني غير صحيح، مثال: abc@email.com",
+      "البريد الإلكتروني غير صحيح",
     ),
     "validator_invalid_phone": MessageLookupByLibrary.simpleMessage(
-      "تنسيق رقم الهاتف غير صحيح، مثال: 0128223643",
+      "رقم الهاتف غير صحيح",
     ),
     "validator_long_name": MessageLookupByLibrary.simpleMessage(
-      "يجب أن يكون الاسم أقل من 25 حرفًا",
+      "الاسم طويل جدًا",
     ),
     "validator_password_not_match": MessageLookupByLibrary.simpleMessage(
-      "كلمتا المرور غير متطابقتين",
+      "كلمات المرور غير متطابقة",
     ),
     "validator_short_message": MessageLookupByLibrary.simpleMessage(
-      "الاسم قصير جدًا",
+      "الرسالة قصيرة جدًا",
     ),
     "validator_short_name": MessageLookupByLibrary.simpleMessage(
       "الاسم قصير جدًا",
     ),
     "validator_short_password": MessageLookupByLibrary.simpleMessage(
-      "يجب أن تتكون كلمة المرور من أكثر من 6 أحرف",
+      "كلمة المرور قصيرة جدًا",
     ),
   };
 }
