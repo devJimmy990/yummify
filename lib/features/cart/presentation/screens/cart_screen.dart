@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:yummify/core/extensions/navigator.dart';
-import 'package:yummify/core/helper/notification_services.dart';
 import 'package:yummify/core/localization/localization.dart';
 import 'package:yummify/core/routes/routes.dart';
 import 'package:yummify/core/ui/toast.dart';
@@ -123,11 +122,7 @@ class _CheckoutBottomSheet extends StatelessWidget {
               );
               context.read<CartCubit>().clearCart();
               ToastHelper.success(Localization.cartOrderCreatedSuccessfully);
-              LocalNotificationService.show(
-                id: DateTime.now().millisecondsSinceEpoch,
-                title: "Yummify",
-                body: "Order created successfully",
-              );
+
               // ScaffoldMessenger.of(context).showSnackBar(
               //   const SnackBar(content: Text('Checkout complete!')),
               // );

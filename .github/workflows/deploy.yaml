@@ -7,27 +7,27 @@ on:
 
 jobs:
   build-android:
-    name: Bump Version, Build & Deploy Android
+    name: Build & Deploy Android to Firebase
     runs-on: ubuntu-latest
 
     steps:
+      # ✅ Step 1: Checkout the repo
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Git
-        run: |
-          git config --global user.email "ci-bot@example.com"
-          git config --global user.name "GitHub Actions"
-
-      - name: Set up Flutter with FVM
-        uses: kuhnroyal/flutter-fvm-config-action@v2
+      # ✅ Step 2: Install Flutter 3.29.3 and enable caching
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version-file: .fvm/fvm_config.json
+          flutter-version: "3.29.3"
+          cache: true
 
-      - name: Install Flutter dependencies
+      # ✅ Step 3: Install dependencies
+      - name: Install dependencies
         run: flutter pub get
 
-      - name: Auto bump build number in pubspec.yaml
+      # ✅ Step 4: Auto bump build number in pubspec.yaml
+      - name: Auto bump build number
         run: |
           echo "🔢 Bumping build number..."
           current_version=$(grep '^version:' pubspec.yaml | awk '{print $2}')
@@ -35,15 +35,20 @@ jobs:
           build_number=$(echo $current_version | cut -d+ -f2)
           new_build_number=$((build_number + 1))
           new_version="$base_version+$new_build_number"
-          echo "New version: $new_version"
+          echo "🔧 New version: $new_version"
           sed -i "s/^version:.*/version: $new_version/" pubspec.yaml
-          git add pubspec.yaml
-          git commit -m "ci: bump build number to $new_build_number"
-          git push
 
+          git config --global user.email "ci-bot@example.com"
+          git config --global user.name "GitHub Actions"
+          git add pubspec.yaml
+          git commit -m "ci: bump build number to $new_build_number" || echo "No changes to commit"
+          git push || echo "No changes to push"
+
+      # ✅ Step 5: Build APK
       - name: Build APK
         run: flutter build apk --release
 
+      # ✅ Step 6: Upload to Firebase App Distribution
       - name: Upload to Firebase App Distribution
         run: |
           curl -sL https://firebase.tools | bash
